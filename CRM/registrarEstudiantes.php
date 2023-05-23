@@ -18,7 +18,7 @@ if(isset($_POST['guardar'])){
 
     $config->insertData();
 
-    echo "<script>alert('Los datos fueron guardados exitosamente'); document.location='estudiantes.php;</script>";
+    echo "<script>alert('Los datos fueron guardados exitosamente'); document.location='estudiantes.php';</script>";
 }
 
 ?>
