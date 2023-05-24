@@ -58,6 +58,27 @@ class Config {
             return $e->getMessage();
         }
     }
+    
+    public function obtainAll(){
+        try {
+            $stm = $this->dbCnx->prepare("SELECT * FROM campers");
+            $stm -> execute();
+            return $stm -> fetchAll();
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function delete(){
+        try {
+            $stm = $this->dbCnx->prepare("DELETE FROM campers WHERE id = ?");
+            $stm -> execute(array($this->id));
+            return $stm -> fetchAll(); //Me regresa todas las filas excepto la que fue eliminada
+            echo "<script>alert('Dato borrado satisfactoriamente');document.location='estudiantes.php';</script>";
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
 
 }
 

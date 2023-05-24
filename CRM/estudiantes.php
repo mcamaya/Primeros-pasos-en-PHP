@@ -1,3 +1,12 @@
+<?php
+
+require_once("config.php");
+
+$data = new Config();
+$all = $data->obtainAll();
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -56,15 +65,39 @@
               <th scope="col">NOMBREs</th>
               <th scope="col">DIRECCION</th>
               <th scope="col">LOGROS</th>
-              <th scope="col">DETALLE</th>
+              <th scope="col">SKILLS</th>
+							<th scope="col">SER</th>
+							<th scope="col">INGLÉS</th>
+							<th scope="col">ESPECIALIDAD</th>
+							<th scope="col">BORRAR</th>
             </tr>
           </thead>
           <tbody class="" id="tabla">
 
-            <!-- ///////Llenado DInamico desde la Base de Datos -->
-         
-       
+            <!-- ///////Llenado Dinámico desde la Base de Datos -->
+            <?php
 
+              foreach($all as $key => $value) {
+
+              
+              
+            ?>
+
+						<!-- fila insertada con php -->
+            <tr>
+							<td><?php echo $value['id'] ?></td>
+							<td><?php echo $value['nombres'] ?></td>
+							<td><?php echo $value['direccion'] ?></td>
+							<td><?php echo $value['logros'] ?></td>
+							<td><?php echo $value['ser'] ?></td>
+							<td><?php echo $value['ingles'] ?></td>
+							<td><?php echo $value['skills'] ?></td>
+							<td><?php echo $value['especialidad'] ?></td>
+							<td><?php echo $value['asistencia'] ?></td>
+							<td><a class="btn btn-danger" href="borrarEstudiantes.php?id=<?=$value['id']?>&req=delete">Borrar</a></td>
+            </tr>
+
+						<?php }?>
           </tbody>
         
         </table>
@@ -103,7 +136,8 @@
                   type="text"
                   id="nombres"
                   name="nombres"
-                  class="form-control"  
+                  class="form-control" 
+									required 
                 />
               </div>
 
@@ -113,7 +147,8 @@
                   type="text"
                   id="direccion"
                   name="direccion"
-                  class="form-control"  
+                  class="form-control" 
+									required 
                 />
               </div>
 
@@ -123,7 +158,8 @@
                   type="text"
                   id="logros"
                   name="logros"
-                  class="form-control"  
+                  class="form-control" 
+									required 
                  
                 />
               </div>
