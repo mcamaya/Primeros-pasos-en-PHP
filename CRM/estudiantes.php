@@ -164,6 +164,66 @@ $all = $data->obtainAll();
                 />
               </div>
 
+							<div class="mb-1 col-12">
+                <label for="ser" class="form-label">SER</label>
+                <input 
+                  type="text"
+                  id="ser"
+                  name="ser"
+                  class="form-control" 
+									required 
+                 
+                />
+              </div>
+
+							<div class="mb-1 col-12">
+                <label for="ingles" class="form-label">Inglés</label>
+                <input 
+                  type="text"
+                  id="ingles"
+                  name="ingles"
+                  class="form-control" 
+									required 
+                 
+                />
+              </div>
+
+							<div class="mb-1 col-12">
+                <label for="skills" class="form-label">Skills</label>
+                <input 
+                  type="text"
+                  id="skills"
+                  name="skills"
+                  class="form-control" 
+									required 
+                 
+                />
+              </div>
+
+							<div class="mb-1 col-12">
+                <label for="especialidad" class="form-label">Especialidad</label>
+                <input 
+                  type="text"
+                  id="especialidad"
+                  name="especialidad"
+                  class="form-control" 
+									required 
+                 
+                />
+              </div>
+
+							<div class="mb-1 col-12">
+                <label for="asistencia" class="form-label">Asistencia</label>
+                <input 
+                  type="text"
+                  id="asistencia"
+                  name="asistencia"
+                  class="form-control" 
+									required 
+                 
+                />
+              </div>
+
               <div class=" col-12 m-2">
                 <input type="submit" class="btn btn-primary" value="Guardar" name="guardar"/>
               </div>
