@@ -69,7 +69,10 @@ $all = $data->obtainAll();
 							<th scope="col">SER</th>
 							<th scope="col">INGLÉS</th>
 							<th scope="col">ESPECIALIDAD</th>
+              <th scope="col">ASI
+                STENCIA</th>
 							<th scope="col">BORRAR</th>
+              <th scope="col">EDITAR</th>
             </tr>
           </thead>
           <tbody class="" id="tabla">
@@ -95,6 +98,7 @@ $all = $data->obtainAll();
 							<td><?php echo $value['especialidad'] ?></td>
 							<td><?php echo $value['asistencia'] ?></td>
 							<td><a class="btn btn-danger" href="borrarEstudiantes.php?id=<?=$value['id']?>&req=delete">Borrar</a></td>
+              <td><a class="btn btn-warning" href="actualizarEstudiantes.php?id=<?=$value['id']?>">Editar</a></td>
             </tr>
 
 						<?php }?>

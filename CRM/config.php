@@ -125,6 +125,26 @@ class Config {
         }
     }
 
+    //UPDATE
+    public function selectOne(){
+        try {
+            $stm = $this->dbCnx->prepare("SELECT * from campers WHERE id = ?");
+            $stm -> execute([$this->id]);
+            return $stm->fetchAll();
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function update(){
+        try {
+            $stm = $this->dbCnx->prepare("UPDATE campers SET nombres = ?, direccion = ?, logros = ?, ser = ?, ingles = ?, skills = ?, especialidad = ?, asistencia = ? WHERE id = ?");
+            $stm->execute([$this->nombres, $this->direccion, $this->logros, $this->ser, $this->ingles, $this->skills, $this->especialidad, $this->asistencia, $this->id]);
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
 }
 
 
