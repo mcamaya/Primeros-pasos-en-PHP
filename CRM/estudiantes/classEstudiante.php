@@ -1,8 +1,8 @@
 <?php
 
-require_once("db.php");
+require_once("../config/conectar.php");
 
-class Config {
+class Estudiante extends Conectar {
 
     //mapeando columnas de la tabla con atributos de la clase
     private $id;
@@ -15,9 +15,7 @@ class Config {
     private $especialidad; 
     private $asistencia; 
 
-    protected $dbConx; //conexión a la base de datos
-
-    public function __construct($id = 0, $nombres = "", $direccion = "", $logros = "", $ser="", $ingles="", $skills="", $especialidad="", $asistencia=""){
+    public function __construct($id = 0, $nombres = "", $direccion = "", $logros = "", $ser="", $ingles="", $skills="", $especialidad="", $asistencia="", $dbCnx=""){
         $this->id = $id;
         $this->nombres = $nombres;
         $this->direccion = $direccion;
@@ -28,7 +26,7 @@ class Config {
         $this->especialidad = $especialidad;
         $this->asistencia = $asistencia;
 
-        $this->dbCnx = new PDO(DB_TYPE.":host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PWD, [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]);
+        parent::__construct($dbCnx);
     }
 
     public function setId($idNum){

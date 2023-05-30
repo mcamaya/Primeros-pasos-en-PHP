@@ -1,13 +1,11 @@
 <?php
 ini_set("display_errors", 1);
-
 ini_set("display_startup_errors", 1);
-
 error_reporting(E_ALL);
 
-require_once('config.php');
+require_once('classEstudiante.php');
 //Traemos el id del estudiante a editar + los datos
-$data = new Config();
+$data = new Estudiante();
 $id = $_GET['id'];
 
 $data->setId($id);

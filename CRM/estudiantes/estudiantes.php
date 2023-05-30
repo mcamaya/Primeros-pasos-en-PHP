@@ -1,8 +1,8 @@
 <?php
 
-require_once("config.php");
+require_once("classEstudiante.php");
 
-$data = new Config();
+$data = new Estudiante();
 $all = $data->obtainAll();
 
 ?>
@@ -35,7 +35,7 @@ $all = $data->obtainAll();
       <div class="perfil">
         <h3 style="margin-bottom: 2rem;">Camper Skills.</h3>
         <img src="images/Diseño sin título.png" alt="" class="imagenPerfil">
-        <h3>Pepito Pérez</h3>
+        <h3>Maicol Estrada</h3>
       </div>
       <div class="menus">
         <a href="/Home/home.php" style="display: flex;gap:2px;">
@@ -65,9 +65,9 @@ $all = $data->obtainAll();
               <th scope="col">NOMBREs</th>
               <th scope="col">DIRECCION</th>
               <th scope="col">LOGROS</th>
-              <th scope="col">SKILLS</th>
 							<th scope="col">SER</th>
 							<th scope="col">INGLÉS</th>
+              <th scope="col">SKILLS</th>
 							<th scope="col">ESPECIALIDAD</th>
               <th scope="col">ASI
                 STENCIA</th>

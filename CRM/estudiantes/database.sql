@@ -11,7 +11,19 @@ CREATE TABLE campers(
     asistencia VARCHAR (225)
 );
 
-mysql -u (user) -p
+mysql -u (user) -p;
 
 USE campusv2;
 DROP TABLE campers;
+
+
+--Login
+CREATE TABLE users(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    idCamper INT NOT NULL,
+    email VARCHAR(80) NOT NULL,
+    username VARCHAR(80) NOT NULL,
+    password VARCHAR(60) NOT NULL,
+
+    FOREIGN KEY (idCamper) REFERENCES campers(id)
+);
