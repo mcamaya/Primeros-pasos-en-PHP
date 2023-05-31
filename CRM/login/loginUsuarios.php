@@ -1,18 +1,14 @@
 <?php
 require_once("../config/conectar.php");
 
-class Registro extends Conectar {
+class Login extends Conectar {
     private $id;
-    private $id_camper;
     private $email;
-    private $username;
     private $password;
 
-    public function __construct($id=0, $id_camper=0, $email="", $username="", $password="", $dbCnx=""){
+    public function __construct($id=0, $email="", $password="", $dbCnx=""){
         $this->id = $id;
-        $this->id_camper = $id_camper;
         $this->email = $email;
-        $this->username = $username;
         $this->password = $password;
 
         parent::__construct($dbCnx);
@@ -49,29 +45,35 @@ class Registro extends Conectar {
         $this->password = $newPass;
     }
 
-    public function checkUser($email){
+    public function fetchAll(){
         try {
-            $stm = $this->dbCnx->prepare("SELECT * FROM users WHERE email = '$email'");
+            $stm = $this->dbCnx->prepare("SELECT * FROM users");
             $stm -> execute();
-            if($stm->fetchColumn()){
-                return true;
-            } else {
-                return false;
-            }
-        } catch (Exception $e) {
-            return $e->getMessage();
-        } 
-    }
-
-    public function insertData(){
-        try {
-            $stm = $this->dbCnx->prepare("INSERT INTO users (idCamper, email, username, password) values(?,?,?,?)");
-            $stm->execute([$this->id_camper, $this->email, $this->username, md5($this->password)]);
+            return $stm -> fetchAll();
         } catch (Exception $e) {
             return $e->getMessage();
         }
     }
 
-    
+    public function login(){
+        try {
+            $stm = $this->dbCnx->prepare("SELECT * FROM users WHERE email = ? AND password = ?");
+            $stm->execute([$this->email, MD5($this->password)]);
+            $user = $stm->fetchAll();
+            if(count($user) > 0){
+                session_start();
+                $_SESSION['id'] = $user[0]['id'];
+                $_SESSION['email'] = $user[0]['email'];
+                $_SESSION['password'] = $user[0]['password'];
+
+                return true;
+            } else {
+                false;
+            }
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
 
 }
+
